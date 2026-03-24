@@ -1,0 +1,25 @@
+{
+  "name": "testetrier",
+  "version": "1.0.0",
+  "description": "Testes e2e",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olivier-sbr/TesteTrier.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/olivier-sbr/TesteTrier/issues"
+  },
+  "homepage": "https://github.com/olivier-sbr/TesteTrier#readme",
+  "devDependencies": {
+    "cypress": "^15.12.0",
+    "typescript": "5.9"
+  }
+}
