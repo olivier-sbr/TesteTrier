@@ -20,5 +20,26 @@ class HomePage {
   logout() {
     cy.get("#logout_sidebar_link").click();
   }
+  openProduct(product: string) {
+    cy.get(`[data-test="inventory-item-${product}-img"]`).click();
+  }
+
+  sortProductsBy(value: string) {
+    cy.get('[data-test="product-sort-container"]').select(value);
+  }
+
+  productPrices() {
+    return cy.get(".inventory_item_price");
+  }
+
+  getProductPrices() {
+    const prices: number[] = [];
+
+    return this.productPrices()
+      .each(($el) => {
+        prices.push(parseFloat($el.text().replace("$", "")));
+      })
+      .then(() => prices);
+  }
 }
 export default new HomePage();
