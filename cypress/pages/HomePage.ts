@@ -14,5 +14,11 @@ class HomePage {
   removeFromCart(product: string) {
     cy.get(`[data-test="remove-${product}"]`).click();
   }
+  openMenu() {
+    cy.get("#react-burger-menu-btn").click();
+  }
+  logout() {
+    cy.get("#logout_sidebar_link").click();
+  }
 }
 export default new HomePage();

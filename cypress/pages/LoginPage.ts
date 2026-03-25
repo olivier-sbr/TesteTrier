@@ -3,10 +3,14 @@ class LoginPage {
     cy.visit("/");
   }
 
+  loginButton() {
+    return cy.get('[data-test="login-button"]');
+  }
+
   login(username: string, password: string) {
     cy.get('[data-test="username"]').type(username);
     cy.get('[data-test="password"]').type(password);
-    cy.get('[data-test="login-button"]').click();
+    this.loginButton().click();
   }
 
   errorMessage() {
