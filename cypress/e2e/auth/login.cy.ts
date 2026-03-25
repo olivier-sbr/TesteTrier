@@ -1,24 +1,23 @@
-describe("Login in tests", () => {
-  it("Should login successfully", () => {
-    cy.visit("/");
+import LoginPage from "../../pages/LoginPage";
+import HomePage from "../../pages/HomePage";
 
-    cy.get('[data-test="username"]').type("standard_user");
-    cy.get('[data-test="password"]').type("secret_sauce");
-    cy.get('[data-test="login-button"]').click();
+describe("Login tests", () => {
+  it("Should authenticate successfully with valid credentials", () => {
+    LoginPage.visit();
 
-    cy.get(".inventory_list").should("be.visible");
+    LoginPage.login("standard_user", "secret_sauce");
+
     cy.url().should("include", "/inventory");
+    HomePage.inventoryList().should("be.visible");
   });
 
-  it("Should show an error and remain on login page when credentials are invalid", () => {
-    cy.visit("/");
+  it("Should not authenticate with invalid credentials", () => {
+    LoginPage.visit();
 
-    cy.get('[data-test="username"]').type("wrong_user");
-    cy.get('[data-test="password"]').type("secret_sauce");
-    cy.get('[data-test="login-button"]').click();
+    LoginPage.login("wrong_user", "secret_sauce");
 
     cy.url().should("not.include", "/inventory");
-    cy.get('[data-test="login-button"]').should("be.visible");
-    cy.get('[data-test="error"]').should("be.visible");
+    LoginPage.loginButton().should("be.visible");
+    LoginPage.errorMessage().should("be.visible");
   });
 });
