@@ -3,38 +3,14 @@ class LoginPage {
     cy.visit("/");
   }
 
-  usernameInput() {
-    return cy.get('[data-test="username"]');
-  }
-
-  passwordInput() {
-    return cy.get('[data-test="password"]');
-  }
-
-  loginButton() {
-    return cy.get('[data-test="login-button"]');
+  login(username: string, password: string) {
+    cy.get('[data-test="username"]').type(username);
+    cy.get('[data-test="password"]').type(password);
+    cy.get('[data-test="login-button"]').click();
   }
 
   errorMessage() {
     return cy.get('[data-test="error"]');
-  }
-
-  fillUsername(username: string) {
-    this.usernameInput().type(username);
-  }
-
-  fillPassword(password: string) {
-    this.passwordInput().type(password);
-  }
-
-  submit() {
-    this.loginButton().click();
-  }
-
-  login(username: string, password: string) {
-    this.fillUsername(username);
-    this.fillPassword(password);
-    this.submit();
   }
 }
 

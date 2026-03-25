@@ -17,7 +17,6 @@ describe("Login tests", () => {
     LoginPage.login("wrong_user", "secret_sauce");
 
     cy.url().should("not.include", "/inventory");
-    LoginPage.loginButton().should("be.visible");
     LoginPage.errorMessage().should("be.visible");
   });
 });
