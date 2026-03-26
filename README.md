@@ -58,8 +58,6 @@ Também foi buscado o uso de seletores mais estáveis, principalmente com `data-
 
 ### Critérios de validação
 
-### Critérios de validação
-
 As validações foram definidas com foco no comportamento observável da aplicação após cada ação do usuário.
 
 Nos fluxos de autenticação, carrinho e checkout, a navegação foi validada principalmente por meio da mudança de URL, garantindo que cada ação realmente levasse o usuário para a etapa esperada do fluxo.
